@@ -1,0 +1,5 @@
+<% if @avatar_index.attached? %>
+  <%= image_tag(@avatar_index, size:"50x50")%>
+<% else %>
+  <%= image_tag("no_image.png", size:"50x50")%>
+<% end %>

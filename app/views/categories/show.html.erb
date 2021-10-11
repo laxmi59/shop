@@ -1,0 +1,14 @@
+<h1> Category - <%=@category.name%></h1>
+<table>
+    <tr>
+      <td> Category Name: </td>
+      <td> <%= @category.name %></td>
+    </tr>
+<tr>
+  <td> Category Image: </td>
+  <td>
+    <% @avatar_show = @category.avatar %>
+    <%= render "shared/show_image_display" %>
+  </td>
+</tr>
+</table>

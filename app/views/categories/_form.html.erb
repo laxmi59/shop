@@ -1,0 +1,23 @@
+
+<table>
+  <% if @category.errors.full_messages.any? %>
+    <tr>
+      <% @category.errors.full_messages.each do |msg| %>
+      <%= msg %>
+      <% end %>
+    </tr>
+  <% end %>
+    <%= form_for @category, multipart: true do |f|%>
+      <tr>
+        <td><%= f.label "Category Name:" %></td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "Category Image:" %></td>
+        <td><%= f.file_field :avatar %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit "Submit" %></td>
+      </tr>
+  <%end%>
+</table>

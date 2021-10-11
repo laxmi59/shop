@@ -1,0 +1,23 @@
+<h1> Categories</h1>
+<table>
+  <%= link_to "Add Category", new_category_path, method: :get %>
+  <% if @categories.empty? %>
+    <tr>
+      <td>No records found</td>
+    </tr>
+  <% else %>
+    <% @categories.each do |category|
+    @avatar_index = category.avatar
+    %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+            <%= render "shared/index_image_display" %>
+        </td>
+        <td><%= link_to "Show", category_path(category.id), method: :get  %></td>
+        <td><%= link_to "Edit", edit_category_path(category.id), method: :get  %></td>
+        <td><%= link_to "Delete", category_path(category.id), method: :delete, data: {confirm: "Are yu sure? You want to delete category "+ category.name + "and its products?"} %></td>
+      </tr>
+    <% end%>
+  <% end%>
+</table>

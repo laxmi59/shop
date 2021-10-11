@@ -1,0 +1,26 @@
+<h1>Product Show</h1>
+<table>
+    <tr>
+      <td> Product Name: </td>
+      <td> <%= @product.name %></td>
+    </tr>
+    <tr>
+      <td> Category Name: </td>
+      <td> <%= @product.category.name %></td>
+    </tr>
+    <tr>
+      <td> Product Price: </td>
+      <td> <%= @product.price %></td>
+    </tr>
+    <tr>
+      <td> Product Image: </td>
+      <td>
+        <% @avatar_show = @product.avatar %>
+        <%= render "shared/show_image_display" %>
+      </td>
+    </tr>
+    <tr>
+      <td> Product Description: </td>
+      <td> <%= @product.body %></td>
+    </tr>
+</table>

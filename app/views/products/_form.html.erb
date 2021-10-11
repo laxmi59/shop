@@ -1,0 +1,43 @@
+<%= form_for @product do |f|%>
+<table>
+  <tr>
+    <td> Category</td>
+    <td> <%= f.collection_select :category_id, @categories, :id, :name, {:prompt => "Select",:selected => @product.category_id} %></td>
+  </tr>
+  <%  @product.errors.full_messages_for(:category_id).each do |catErr| %>
+  <tr><td colspan="2"> <%= catErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> Product Name </td>
+    <td> <%= f.text_field :name%></td>
+  </tr>
+  <%  @product.errors.full_messages_for(:name).each do |nameErr| %>
+  <tr><td colspan="2"> <%= nameErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> Product Price </td>
+    <td> <%= f.text_field :price%></td>
+  </tr>
+  <%  @product.errors.full_messages_for(:price).each do |priceErr| %>
+  <tr><td colspan="2"> <%= priceErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> Product Description </td>
+    <td> <%= f.text_area :body%></td>
+  </tr>
+  <%  @product.errors.full_messages_for(:body).each do |bodyErr| %>
+  <tr><td colspan="2"> <%= bodyErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> Product Image </td>
+    <td> <%= f.file_field :avatar%></td>
+  </tr>
+  <%  @product.errors.full_messages_for(:avatar).each do |avatarErr| %>
+  <tr><td colspan="2"> <%= avatarErr %></td></tr>
+  <% end%>
+  <tr>
+    <td> </td>
+    <td> <%= f.submit "Submit"%></td>
+  </tr>
+</table>
+<% end %>
